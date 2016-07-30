@@ -1,0 +1,20 @@
+{% block content %}
+{% load friendshiptags %}
+<!--<h1>Your Friends</h1>-->
+<!--{% get_by_name friendship_context_object_name as var %}-->
+<!--{% friends var %}-->
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Your Friends</div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="text-right list-group-item">{% get_by_name friendship_context_object_name as var %}</li>
+            <li class="text-right list-group-item">{% friends var %}</li>
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock %}

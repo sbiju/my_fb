@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+<div class='col-sm-6 col-sm-offset-3'>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="panel-title">Create Your Profile</div>
+        <hr class="colorgraph">
+        <div class="form-group">
+        <form method='POST' action='' enctype='multipart/form-data' role="form">{% csrf_token %}
+        {{ form|crispy }}
+        <input type='submit' class='btn btn-success' value='Create Profile' />
+        </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock %}

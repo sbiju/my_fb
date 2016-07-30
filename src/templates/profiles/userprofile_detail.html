@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}{% load friendshiptags %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3 ">
+            <div class="panel panel-default">
+                <div class="panel-heading">Welcome {{ object.first_name }}
+                    <div class="panel-body">
+                     <!--<div class="thumbnail">-->
+                    <img  class="img-responsive" src="{{ object.photo.url }}"/>
+                    <!--</div>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="col-md-8 ">
+        <div class="panel panel-default">
+             <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Gender</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Update?</th>
+                      <th>Delete?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>{{ object.first_name }}</td>
+                        <td>{{ object.last_name }}</td>
+                        <td>{{ object.gender }}</td>
+                        <td>{{ object.email }}</td>
+                        <td>{{ object.phone }}</td>
+                        <td>
+                        <a href="{% url 'profiles:user_update' object.pk %}" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-off" area-hidden="true"></span>
+                        </a>
+                        </td>
+                        <td>
+                        <a href="{% url 'profiles:user_delete' object.pk %}" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-off" area-hidden="true"></span>
+                        </a>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      <div class="col-sm-5 col-sm-offset-7">
+        <div class="panel panel-default">
+            <div class="panel-heading">Friends</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li>{% friends request.user %}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

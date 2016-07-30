@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block 'friends' %}
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Requests</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                     {% for friendship_request in requests %}
+                    <li class="list-group-item">{{ friendship_request.from_user }} to {{ friendship_request.to_user }} <a href="{% url 'friendship_requests_detail' friendship_request.id %}">view</a></li>
+                    {% empty %}
+                </ul>
+                <div>no requests :(</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock 'friends' %}
